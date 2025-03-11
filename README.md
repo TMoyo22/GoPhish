@@ -143,11 +143,10 @@ _(License information to be determined)_
 
 Project Team:
 
-- [Team Member 1](#) _(LinkedIn profile)_
-- [Team Member 2](#)
-- [Team Member 3](#)
-- [Team Member 4](#)
-- [Team Member 5](#)
-- [Team Member 6](#)
+- [Tatenda Moyo](https://www.linkedin.com/in/tatenda-moyo-576235220/)
+- [Khawulela Mpono](https://www.linkedin.com/in/khawulela-mpono-9a7744163/)
+- [Sbonelo Dube](https://www.linkedin.com/in/sbonelodube/)
+- [Manqoba Nkosi](https://www.linkedin.com/in/manqoba-nkosi-iot/)
+- [Charlie Mashinini](https://www.linkedin.com/in/charlie-s-mashinini-490444272/)
 
 Project Link: [https://github.com/yourusername/gophish](https://github.com/yourusername/gophish)
