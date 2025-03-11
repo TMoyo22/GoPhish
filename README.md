@@ -1,5 +1,3 @@
-# GoPhish
-
 <div align="center">
   
   <h1>GoPhish</h1>
