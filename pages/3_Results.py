@@ -1,6 +1,25 @@
+import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from pymongo import MongoClient
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+uri = os.getenv('MONGO_URI')
+
+# MongoDB connection
+try:
+    client = MongoClient(uri)
+    db = client['gophishdb']
+    users_collection = db['users']
+    clicks_collection = db['clicks']
+    # Debugging: Print success message
+    print("Connected to MongoDB successfully")
+except Exception as e:
+    # Debugging: Print error message
+    print(f"Error connecting to MongoDB: {e}")
 
 # Page Config
 st.set_page_config(page_title="Phishing Results", layout="wide")
@@ -9,19 +28,19 @@ st.set_page_config(page_title="Phishing Results", layout="wide")
 st.title("📈 Phishing Simulation Results")
 st.write("Track email clicks and user interactions.")
 
-# Placeholder Data (Replace with database queries)
+# Query MongoDB for data
+clicks = list(clicks_collection.find())
+user_ids = [click['user_id'] for click in clicks]
+users = list(users_collection.find({"_id": {"$in": user_ids}}))
+
+# Create a dictionary to map user_id to email
+user_id_to_name = {str(user['_id']): user['name'] for user in users}
+
+# Populate sample_data
 sample_data = {
-    "User": [
-        "alice@example.com", "bob@example.com", "charlie@example.com",
-        "dave@example.com", "eve@example.com", "frank@example.com",
-        "alice@example.com", "bob@example.com", "alice@example.com"
-    ],
-    "Clicked": ["Yes", "No", "Yes", "No", "Yes", "Yes", "Yes", "Yes", "No"],
-    "Timestamp": [
-        "2025-03-01 14:30", "2025-03-02 15:15", "2025-03-03 16:05",
-        "2025-03-04 12:00", "2025-03-05 13:45", "2025-03-06 10:30",
-        "2025-03-06 11:15", "2025-03-07 09:20", "2025-03-07 17:40"
-    ]
+    "User": [user_id_to_name.get(str(click['user_id']), 'Unknown') for click in clicks],
+    "Clicked": [click['clicked'] for click in clicks],
+    "Timestamp": [click['timestamp'] for click in clicks]
 }
 
 # Convert to DataFrame
@@ -70,4 +89,3 @@ st.write("These users clicked on phishing emails the most times this month:")
 # Display as a DataFrame
 top_users_df = pd.DataFrame({"User": top_users.index, "Clicks": top_users.values})
 st.dataframe(top_users_df, hide_index=True)
-
