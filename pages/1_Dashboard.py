@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 from pymongo import MongoClient
 from dotenv import load_dotenv
-import random
 
 # Load environment variables
 load_dotenv()
@@ -42,14 +41,28 @@ col1.metric("Total Emails Sent", total_emails)
 col2.metric("Click Rate", f"{click_rate:.2f}%")
 col3.metric("Compromised Users", unique_compromised_users)
 
-# Simulated Data (Replace with database query)
-days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-emails_sent = [random.randint(40, 60) for _ in days]
-clicks = [random.randint(10, 30) for _ in days]
+# Query MongoDB for daily data
+clicks = list(clicks_collection.find())
+df = pd.DataFrame(clicks)
+
+# Convert timestamp to datetime and extract day of the week
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+df["day_of_week"] = df["timestamp"].dt.day_name()
+
+# Set the categorical order for the days of the week
+days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+df["day_of_week"] = pd.Categorical(df["day_of_week"], categories=days_order, ordered=True)
+
+# Group by day of the week and count emails sent and clicks
+emails_sent = df.groupby("day_of_week").size()
+clicks = df[df["clicked"] == "Yes"].groupby("day_of_week").size()
+
+# Ensure all days are present in the index
+emails_sent = emails_sent.reindex(days_order, fill_value=0)
+clicks = clicks.reindex(days_order, fill_value=0)
 
 # DataFrame for visualization
-df = pd.DataFrame({"Day": days, "Emails Sent": emails_sent, "Clicks": clicks})
-df.set_index("Day", inplace=True)
+df_vis = pd.DataFrame({"Emails Sent": emails_sent, "Clicks": clicks}, index=days_order)
 
 # Visualization Section
 st.subheader("📈 Phishing Engagement Trends")
@@ -57,11 +70,11 @@ st.subheader("📈 Phishing Engagement Trends")
 col4, col5 = st.columns(2)
 
 with col4:
-    st.bar_chart(df)
+    st.bar_chart(df_vis)
 
 with col5:
-    st.line_chart(df)
+    st.line_chart(df_vis)
 
 # Expandable Section for Details
 with st.expander("🔍 View Detailed Stats"):
-    st.write(df)
+    st.write(df_vis)

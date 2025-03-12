@@ -45,6 +45,7 @@ sample_data = {
 
 # Convert to DataFrame
 df = pd.DataFrame(sample_data)
+df.index = df.index + 1
 st.dataframe(df)
 
 # Convert timestamp to datetime and extract month
@@ -61,7 +62,7 @@ fig_pie = px.pie(
     values=[yes_count, no_count], 
     names=["Clicked (Yes)", "Did Not Click (No)"],
     title="Phishing Click Rate",
-    color_discrete_sequence=["red", "green"]
+    color_discrete_sequence=["green", "red"]
 )
 st.plotly_chart(fig_pie)
 
