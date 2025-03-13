@@ -26,6 +26,13 @@ except Exception as e:
 # Page Config
 st.set_page_config(page_title="Phishing Results", layout="wide")
 
+st.markdown(
+    """
+        <style>div[data-testid="stToolbar"] { display: none;}</style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Title
 st.title("📈 Phishing Simulation Results")
 st.write("Track email clicks and user interactions.")

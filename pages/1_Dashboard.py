@@ -24,6 +24,13 @@ except Exception as e:
 # Page config
 st.set_page_config(page_title="GoPhish Dashboard", layout="wide")
 
+st.markdown(
+    """
+        <style>div[data-testid="stToolbar"] { display: none;}</style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Title
 st.title("📊 GoPhish Dashboard")
 st.write("Monitor the performance of phishing simulations in real-time.")

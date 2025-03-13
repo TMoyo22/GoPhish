@@ -4,6 +4,13 @@ st.set_page_config(page_title="GoPhish", layout="wide")
 
 st.markdown(
     """
+        <style>div[data-testid="stToolbar"] { display: none;}</style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
     <style>
         .hero {
             background-color: #0d1117;

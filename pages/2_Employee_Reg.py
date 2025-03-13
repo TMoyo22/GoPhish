@@ -23,6 +23,13 @@ except Exception as e:
 # Set up the page title
 st.set_page_config(page_title="Employee Registration", page_icon="📋")
 
+st.markdown(
+    """
+        <style>div[data-testid="stToolbar"] { display: none;}</style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("📋 Employee Registration")
 
 # Employee registration form
