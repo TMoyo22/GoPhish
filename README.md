@@ -59,7 +59,7 @@ GoPhish is a cybersecurity education tool that helps organizations train employe
 
 ### :space_invader: Tech Stack
 
-- **Frontend:** Streamlit
+- **Frontend:** Streamlit, Python
 - **Backend:** Python
 - **Database:** MongoDB
 
