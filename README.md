@@ -146,4 +146,4 @@ Project Team:
 - [Manqoba Nkosi](https://www.linkedin.com/in/manqoba-nkosi-iot/)
 - [Charlie Mashinini](https://www.linkedin.com/in/charlie-s-mashinini-490444272/)
 
-Project Link: [Open App]([https://github.com/yourusername/gophish](https://gophish.streamlit.app/))
+Project Link: [Open App](https://gophish.streamlit.app/)
