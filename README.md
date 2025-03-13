@@ -21,11 +21,6 @@
 <h4>
     <a href="#">View Demo</a>
   <span> · </span>
-    <a href="#">Documentation</a>
-  <span> · </span>
-    <a href="#">Report Bug</a>
-  <span> · </span>
-    <a href="#">Request Feature</a>
 </h4>
 </div>
 
@@ -56,7 +51,7 @@ GoPhish is a cybersecurity education tool that helps organizations train employe
 
 ### :camera: Screenshots
 
-_(Screenshots will be added here)_
+
 
 ### :space_invader: Tech Stack
 
@@ -118,7 +113,7 @@ streamlit run app.py
 
 ### :triangular_flag_on_post: Deployment
 
-_(Instructions for deployment will be added later)_
+- Sytem was deployed via Streamlit Share
 
 ## :eyes: Usage
 
