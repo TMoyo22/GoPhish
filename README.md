@@ -50,7 +50,7 @@
 GoPhish is a cybersecurity education tool that helps organizations train employees to recognize phishing attacks. The system automates the process of sending phishing emails at random intervals and tracks user interactions. If a user clicks a link, they are redirected to an AI chatbot that educates them about phishing tactics.
 
 ### :camera: Screenshots
-https://github.com/TMoyo22/GoPhish/issues/1#issue-2918398414
+[https://github.com/TMoyo22/GoPhish/issues/1#issue-2918398414](https://github.com/TMoyo22/GoPhish/issues/1)
 
 
 ### :space_invader: Tech Stack
