@@ -1,16 +1,19 @@
-import os
 import streamlit as st
 import pandas as pd
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-uri = os.getenv('MONGO_URI')
+# Load secrets
+try:
+    MONGO_URI = st.secrets["MONGO"]["MONGO_URI"]
+    print("Mongo URI loaded from secrets")
+except KeyError as e:
+    st.error(f"Error accessing Mongo URI from secrets: {e}. Please set up your .streamlit/secrets.toml file.")
+    st.stop()
 
 # MongoDB connection
 try:
-    client = MongoClient(uri)
+    client = MongoClient(MONGO_URI)
     db = client['gophishdb']
     clicks_collection = db['clicks']
     # Debugging: Print success message

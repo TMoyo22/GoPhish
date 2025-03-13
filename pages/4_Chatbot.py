@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 # Get API key from secrets
 try:
-    API_KEY = st.secrets["GEMINI_API_KEY"]
+    API_KEY = st.secrets["GEMINI"]["GEMINI_API_KEY"]
     genai.configure(api_key=API_KEY)
 except Exception as e:
     st.error("Error accessing API key from secrets. Please set up your .streamlit/secrets.toml file.")
@@ -35,7 +35,7 @@ if prompt := st.chat_input("Ask something..."):
     concise_prompt = f"""
     {prompt}
     
-    Please provide a concise response focusing on cybersecurity best practices.
+    Please provide a concise response focusing on cybersecurity best practices while maintaining a friendly and conversational tone.
     Keep your answer to 3-5 sentences when possible.
     """
     
@@ -53,7 +53,7 @@ if prompt := st.chat_input("Ask something..."):
                     'gemini-1.5-flash',
                     generation_config={
                         "max_output_tokens": 200,  # Limit token count for shorter responses
-                        "temperature": 0.4,        # More focused answers
+                        "temperature": 0.7,        # More focused answers
                     }
                 )
                 
