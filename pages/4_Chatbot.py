@@ -9,7 +9,6 @@ except Exception as e:
     st.error("Error accessing API key from secrets. Please set up your .streamlit/secrets.toml file.")
     st.stop()
 
-
 st.set_page_config(page_title="GoPhish Chatbot", page_icon="🤖")
 
 # Initialize session state for messages
@@ -35,8 +34,11 @@ if prompt := st.chat_input("Ask something..."):
     concise_prompt = f"""
     {prompt}
     
-    Please provide a concise response focusing on cybersecurity best practices while maintaining a friendly and conversational tone.
-    Keep your answer to 3-5 sentences when possible.
+    Provide a concise response to: {prompt}. 
+    Do not answer questions that are not related to cybersecurity. 
+    Maintain a friendly, conversational and humanized tone. 
+    Your answer must be the maximum 3-5 sentences. 
+    Avoid providing responses that are not prompted. 
     """
     
     # Show user message (only original prompt)

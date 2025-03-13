@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from pymongo import MongoClient
-from dotenv import load_dotenv
 
 # Load secrets
 try:
