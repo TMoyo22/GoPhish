@@ -66,6 +66,9 @@ clicks = clicks.reindex(days_order, fill_value=0)
 # DataFrame for visualization
 df_vis = pd.DataFrame({"Emails Sent": emails_sent, "Clicks": clicks}, index=days_order)
 
+# Explicitly sort the DataFrame by index before plotting
+df_vis = df_vis.sort_index()
+
 # Visualization Section
 st.subheader("📈 Phishing Engagement Trends")
 

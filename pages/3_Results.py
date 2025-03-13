@@ -64,7 +64,7 @@ fig_pie = px.pie(
     values=[yes_count, no_count], 
     names=["Clicked (Yes)", "Did Not Click (No)"],
     title="Phishing Click Rate",
-    color_discrete_sequence=["green", "red"]
+    color_discrete_sequence=["teal", "red"]
 )
 st.plotly_chart(fig_pie)
 
@@ -79,7 +79,7 @@ fig_bar = px.bar(
     title="Phishing Clicks by Month",
     labels={"value": "Number of Clicks", "Month": "Month"},
     barmode="group",
-    color_discrete_map={"Yes": "red", "No": "green"}
+    color_discrete_map={"Yes": "red", "No": "teal"}
 )
 st.plotly_chart(fig_bar)
 
