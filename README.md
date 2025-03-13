@@ -51,6 +51,10 @@ GoPhish is a cybersecurity education tool that helps organizations train employe
 
 ### :camera: Screenshots
 ![Image](https://github.com/user-attachments/assets/57674436-1ee2-4466-a603-345e0c1e3262)
+![Image](https://github.com/user-attachments/assets/227f7dd5-4d91-4915-a359-5fbd895cd3ca)
+![Image](https://github.com/user-attachments/assets/35d3b938-c9e2-4432-922a-7717ee9c92dd)
+![Image](https://github.com/user-attachments/assets/f6621e7a-914d-4631-9e90-f83ee859ef27)
+![Image](https://github.com/user-attachments/assets/b4481e83-ec72-4e89-95d2-e94735398a41)
 
 
 ### :space_invader: Tech Stack
