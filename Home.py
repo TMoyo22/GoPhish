@@ -9,7 +9,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-hide_streamlit_style = """
+hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
