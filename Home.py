@@ -56,12 +56,6 @@ st.markdown(
         .tip {
             padding-top: 1rem;
         }
-        ._profileContainer_gzau3_53 {
-            display: none;
-        }
-        ._container_gzau3_1 _viewerBadge_nim44_23 {
-            display: none;
-        }
     </style>
     <div class="hero">
         <h1>🎣 Welcome to <span style="color:turquoise;">Go</span>Phish!</h1>
@@ -89,4 +83,12 @@ st.markdown(
     </div>
     """,
     unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+        <style>div[class="_profileContainer_gzau3_53"] { display: none;}</style>
+        <style>div[class="_container_gzau3_1 _viewerBadge_nim44_23"] { display: none;}</style>
+    """,
+    unsafe_allow_html=True,
 )
